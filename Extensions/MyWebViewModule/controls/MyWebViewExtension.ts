@@ -1,11 +1,9 @@
-import * as app from 'tns-core-modules/application';
+
 import { BaseObservable } from 'mdk-core/observables/BaseObservable';
-import { Color } from 'tns-core-modules/color';
 import { IControl } from 'mdk-core/controls/IControl';
 import { Label } from "tns-core-modules/ui/label";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
 import { oModel } from './main-model';
-import { Page } from 'tns-core-modules/ui/page';
 import { RadPieChart, DonutSeries, ChartSeriesSelectionMode } from 'nativescript-ui-chart';
 import { ObservableArray } from "tns-core-modules/data/observable-array";
 
