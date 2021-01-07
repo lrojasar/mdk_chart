@@ -1,0 +1,10 @@
+{
+	"_Type": "Action.Type.OfflineOData.Close",
+	"Service": "/pluginNativeScript/Services/nortService.service",
+	"Force": true,
+	"ActionResult": {
+		"_Name": "close"
+	},
+	"OnSuccess": "/pluginNativeScript/Actions/Service/CloseOfflineSuccessMessage.action",
+	"OnFailure": "/pluginNativeScript/Actions/Service/CloseOfflineFailureMessage.action"
+}

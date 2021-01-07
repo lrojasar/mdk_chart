@@ -1,0 +1,9 @@
+{
+	"Service": "/pluginNativeScript/Services/nortService.service",
+	"_Type": "Action.Type.OfflineOData.Upload",
+	"ActionResult": {
+		"_Name": "sync"
+	},
+	"OnSuccess": "/pluginNativeScript/Actions/Service/DownloadStartedMessage.action",
+	"OnFailure": "/pluginNativeScript/Actions/Service/SyncFailureMessage.action"
+}

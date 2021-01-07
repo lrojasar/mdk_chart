@@ -1,0 +1,39 @@
+{
+	"Credential": "cf",
+	"CF": {
+		"Target": "https://api.cf.us10.hana.ondemand.com",
+		"Organization": "cc8d5399-d1e2-4cc6-8550-abdae56bf0b9",
+		"Space": "c4c722b4-7091-4204-ae07-949afed2f766",
+		"Deploy": {
+			"WebClient": {
+				"AutoUrl": true,
+				"Version": "",
+				"StaticUrl": ""
+			},
+			"Destination": [
+				{
+					"CF": "",
+					"MDK": "com.sap.edm.sampleservice.v2",
+					"URL": ""
+				}
+			]
+		}
+	},
+	"MobileService": {
+		"AdminAPI": "https://mobile-service-cockpit-api.cfapps.us10.hana.ondemand.com/cockpit/v1/org/cc8d5399-d1e2-4cc6-8550-abdae56bf0b9/space/c4c722b4-7091-4204-ae07-949afed2f766",
+		"AppId": "hayduk.armadores.demo",
+		"Destination": [
+			"com.sap.edm.sampleservice.v2",
+			"workflow",
+			"Northwind",
+			"ArmadorService",
+			"ArmadorBackend",
+			"S4H"
+		]
+	},
+	"Onboarding": {
+		"Schema": "sapmobilesvcs",
+		"TimeZone": "UTC",
+		"URL": "sapmobilesvcs://?AppId=hayduk.armadores.demo&ClientId=de3d3632-1665-47fa-8933-f76a4d6e507a&SapCloudPlatformEndpoint=https://sd-hayduk-dev-armadores-hayduk-armadores-demo.cfapps.us10.hana.ondemand.com&AuthorizationEndpointUrl=https://sd-hayduk-dev-armadores-hayduk-armadores-demo.cfapps.us10.hana.ondemand.com/oauth2/api/v1/authorize&RedirectUrl=https://sd-hayduk-dev-armadores-hayduk-armadores-demo.cfapps.us10.hana.ondemand.com&TokenUrl=https://sd-hayduk-dev-armadores-hayduk-armadores-demo.cfapps.us10.hana.ondemand.com/oauth2/api/v1/token"
+	}
+}

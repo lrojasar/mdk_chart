@@ -1,0 +1,17 @@
+{
+	"Service": "/pluginNativeScript/Services/nortService.service",
+	"DefiningRequests": [
+	{
+		"Name": "Customers",
+		"Query": "Customers"
+	}
+],
+	"_Type": "Action.Type.ODataService.Initialize",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": "Downloading...",
+	"ActionResult": {
+		"_Name": "init"
+	},
+	"OnSuccess": "/pluginNativeScript/Actions/Service/InitializeOfflineSuccessMessage.action",
+	"OnFailure": "/pluginNativeScript/Actions/Service/InitializeOfflineFailureMessage.action"
+}

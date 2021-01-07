@@ -1,0 +1,4 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"PageToOpen": "/pluginNativeScript/Pages/Customers/Customers_List.page"
+}
