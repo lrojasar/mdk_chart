@@ -38,12 +38,16 @@ export class MyWebViewClass extends IControl {
         this._StackLayout.addChild(this._targetLabel);
 
         this.oWebView = new WebView();
-        this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
+        
         this.oWebViewUtils = new WebViewUtils();
         //const headers: Map<string, string> = new Map();
         this.headers.set("Token", "Berear :1234");
         this.headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
         this.headers.set("User-Agent", "My Awesome User-Agent!");
+        this.oWebView.onLoadStarted = function (args: LoadEventData) {
+            this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
+            this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
+        }
         this.oWebView.onLoadFinished = function (args: LoadEventData) {
 
             this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
