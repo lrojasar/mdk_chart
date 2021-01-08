@@ -38,12 +38,12 @@ export class MyWebViewClass extends IControl {
         this._StackLayout.addChild(this._targetLabel);
 
         this.oWebView = new WebView();
-        this.oWebView.src = "https://web.facebook.com/";
-        //this.oWebViewUtils = new WebViewUtils();
-        /*const headers: Map<string, string> = new Map();
-        headers.set("Foo", "Bar :P");
+        this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
+        this.oWebViewUtils = new WebViewUtils();
+        const headers: Map<string, string> = new Map();
+        headers.set("Token", "Berear :1234");
         headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
-        this.oWebViewUtils.addHeaders(this.oWebView, headers);*/
+        this.oWebViewUtils.addHeaders(this.oWebView, headers);
         this._StackLayout.addChild(this.oWebView);
         // Create Pie Chart using External plugin
 
