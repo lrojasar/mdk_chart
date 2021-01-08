@@ -52,17 +52,18 @@ export class MyWebViewClass extends IControl {
         this.oWebView.onLoadFinished = function (args) {
             this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
         }
-        this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
+        this.oWebView.src = "https://web.facebook.com/";
         this._StackLayout.addChild(this.oWebView);
         // Create Pie Chart using External plugin
         request({
             url: this.oWebView.src,
             method: "GET",
-            headers: { "Content-Type": "application/json" }
+            headers: { "Token": "Bearear : 018347912378491723498273948" }
         }).then((response) => {
             const result = response;
 
         }, (e) => {
+            var resutl ="";
         });
         const myHtmlView = new HtmlView();
 
