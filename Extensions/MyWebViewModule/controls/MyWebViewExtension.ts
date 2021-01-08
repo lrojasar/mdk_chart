@@ -10,6 +10,8 @@ import { RadPieChart, DonutSeries, ChartSeriesSelectionMode } from 'nativescript
 import { ObservableArray } from "tns-core-modules/data/observable-array";
 import { WebView, LoadEventData } from "tns-core-modules/ui/web-view";
 import { WebViewUtils } from 'nativescript-webview-utils';
+import { request, getFile, getImage, getJSON, getString } from "tns-core-modules/http";
+import { HtmlView } from "tns-core-modules/ui/html-view";
 export class MyWebViewClass extends IControl {
     private _model: any;
     private _observable: BaseObservable;
@@ -44,16 +46,30 @@ export class MyWebViewClass extends IControl {
         this.headers.set("Token", "Berear :1234");
         this.headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
         this.headers.set("User-Agent", "My Awesome User-Agent!");
-        this.oWebView.onLoadStarted = function (args: LoadEventData) {
-            this.oWebViewUtils.addHeaders(web_view_1, this.headers);
+        this.oWebView.onLoadStarted = function (args) {
+            this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
         }
-        this.oWebView.onLoadFinished = function (args: LoadEventData) {
-            this.oWebViewUtils.addHeaders(web_view_1, this.headers);
+        this.oWebView.onLoadFinished = function (args) {
+            this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
         }
         this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
         this._StackLayout.addChild(this.oWebView);
         // Create Pie Chart using External plugin
+        request({
+            url: this.oWebView.src,
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        }).then((response) => {
+            const result = response;
 
+        }, (e) => {
+        });
+        const myHtmlView = new HtmlView();
+
+        myHtmlView.html = `<span>
+        <h1><font color=\"blue\">NativeScript HtmlView</font></h1></br>
+        <h3>This component accept simple HTML strings</h3></span>`;
+        this._StackLayout.addChild(myHtmlView);
         // Extension Properties
         let extProps = this.definition().data.ExtensionProperties;
         if (extProps) {
