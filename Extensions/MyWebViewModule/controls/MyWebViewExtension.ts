@@ -21,7 +21,7 @@ export class MyWebViewClass extends IControl {
     private seriesArray: any;
     private oWebView: any;
     private oWebViewUtils: any;
-
+    private headers: Map<string, string> = new Map();
     public initialize(props) {
         super.initialize(props);
 
@@ -39,14 +39,14 @@ export class MyWebViewClass extends IControl {
 
         this.oWebView = new WebView();
         this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
-
+        this.oWebViewUtils = new WebViewUtils();
+        //const headers: Map<string, string> = new Map();
+        this.headers.set("Token", "Berear :1234");
+        this.headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
+        this.headers.set("User-Agent", "My Awesome User-Agent!");
         this.oWebView.onLoadFinished = function (args: LoadEventData) {
-            this.oWebViewUtils = new WebViewUtils();
-            const headers: Map<string, string> = new Map();
-            headers.set("Token", "Berear :1234");
-            headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
-            headers.set("User-Agent", "My Awesome User-Agent!");
-            this.oWebViewUtils.addHeaders(this.oWebView, headers);
+
+            this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
             if (!args.error) {
                 console.log("Load Finished");
             } else {
