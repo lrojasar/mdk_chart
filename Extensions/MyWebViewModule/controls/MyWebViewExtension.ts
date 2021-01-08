@@ -39,13 +39,15 @@ export class MyWebViewClass extends IControl {
 
         this.oWebView = new WebView();
         this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
-        this.oWebViewUtils = new WebViewUtils();
-        const headers: Map<string, string> = new Map();
-        headers.set("Token", "Berear :1234");
-        headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
-        headers.set("User-Agent", "My Awesome User-Agent!");
-        this.oWebView.onLoadFinished=function(args: LoadEventData) {
-            const webView = args.object as WebView;
+
+        this.oWebView.onLoadFinished = function (args: LoadEventData) {
+            this.oWebViewUtils = new WebViewUtils();
+            const headers: Map<string, string> = new Map();
+            headers.set("Token", "Berear :1234");
+            headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
+            headers.set("User-Agent", "My Awesome User-Agent!");
+            const webView = this.oWebView as WebView;
+            this.oWebViewUtils.addHeaders(webView, headers);
             if (!args.error) {
                 console.log("Load Finished");
             } else {
@@ -53,7 +55,6 @@ export class MyWebViewClass extends IControl {
             }
         }
         this._StackLayout.addChild(this.oWebView);
-        //this.oWebViewUtils.addHeaders(this.oWebView, headers);
         // Create Pie Chart using External plugin
 
         // Extension Properties
