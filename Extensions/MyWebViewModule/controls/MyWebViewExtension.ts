@@ -44,9 +44,6 @@ export class MyWebViewClass extends IControl {
         headers.set("Token", "Berear :1234");
         headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
         headers.set("User-Agent", "My Awesome User-Agent!");
-        this._StackLayout.addChild(this.oWebView);
-        //this.oWebViewUtils.addHeaders(this.oWebView, headers);
-        // Create Pie Chart using External plugin
         this.oWebView.onLoadFinished=function(args: LoadEventData) {
             const webView = args.object as WebView;
             if (!args.error) {
@@ -55,6 +52,9 @@ export class MyWebViewClass extends IControl {
                 console.log(`EventName: ${args.eventName}`);
             }
         }
+        this._StackLayout.addChild(this.oWebView);
+        //this.oWebViewUtils.addHeaders(this.oWebView, headers);
+        // Create Pie Chart using External plugin
 
         // Extension Properties
         let extProps = this.definition().data.ExtensionProperties;
