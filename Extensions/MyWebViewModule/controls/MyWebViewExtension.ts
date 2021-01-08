@@ -46,8 +46,7 @@ export class MyWebViewClass extends IControl {
             headers.set("Token", "Berear :1234");
             headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
             headers.set("User-Agent", "My Awesome User-Agent!");
-            const webView = this.oWebView as WebView;
-            this.oWebViewUtils.addHeaders(webView, headers);
+            this.oWebViewUtils.addHeaders(this.oWebView, headers);
             if (!args.error) {
                 console.log("Load Finished");
             } else {
