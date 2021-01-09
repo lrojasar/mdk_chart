@@ -25,8 +25,10 @@ export class MyWebViewClass extends IControl {
     private seriesArray: any;
     private oWebView: any;
     private oWebViewUtils: any;
+    private oInAppBrowser: any;
+    private oDiaglogs: any;
     private headers: Map<string, string> = new Map();
-    public initialize(props) {
+    public async initialize(props) {
         super.initialize(props);
 
         // Initiate saleorder Model    
@@ -78,8 +80,40 @@ export class MyWebViewClass extends IControl {
         <h1><font color=\"blue\">NativeScript HtmlView</font></h1></br>
         <h3>This component accept simple HTML strings</h3></span>`;
         this._StackLayout.addChild(myHtmlView);
-
-        this.openLink();
+        this.oInAppBrowser = new InAppBrowser();
+        const result = await this.oInAppBrowser.open(this.oWebView.src, {
+            // iOS Properties
+            dismissButtonStyle: 'cancel',
+            preferredBarTintColor: '#453AA4',
+            preferredControlTintColor: 'white',
+            readerMode: false,
+            animated: true,
+            modalPresentationStyle: 'fullScreen',
+            modalTransitionStyle: 'coverVertical',
+            modalEnabled: true,
+            enableBarCollapsing: false,
+            // Android Properties
+            showTitle: true,
+            toolbarColor: '#6200EE',
+            secondaryToolbarColor: 'black',
+            enableUrlBarHiding: true,
+            enableDefaultShare: true,
+            forceCloseOnRedirection: false,
+            // Specify full animation resource identifier(package:anim/name)
+            // or only resource name(in case of animation bundled with app).
+            animations: {
+                startEnter: 'slide_in_right',
+                startExit: 'slide_out_left',
+                endEnter: 'slide_in_left',
+                endExit: 'slide_out_right'
+            },
+            headers: {
+                'my-custom-header': 'my custom header value'
+            },
+            hasBackButton: true,
+            browserPackage: '',
+            showInRecents: false
+        });
         // Extension Properties
         let extProps = this.definition().data.ExtensionProperties;
         if (extProps) {
