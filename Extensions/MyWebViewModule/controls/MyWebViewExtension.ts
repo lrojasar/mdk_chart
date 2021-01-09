@@ -78,6 +78,8 @@ export class MyWebViewClass extends IControl {
         <h1><font color=\"blue\">NativeScript HtmlView</font></h1></br>
         <h3>This component accept simple HTML strings</h3></span>`;
         this._StackLayout.addChild(myHtmlView);
+
+        this.openLink();
         // Extension Properties
         let extProps = this.definition().data.ExtensionProperties;
         if (extProps) {
