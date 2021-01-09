@@ -13,7 +13,7 @@ import { WebViewUtils } from 'nativescript-webview-utils';
 import { request, getFile, getImage, getJSON, getString } from "tns-core-modules/http";
 import { HtmlView } from "tns-core-modules/ui/html-view";
 import { InAppBrowser } from 'nativescript-inappbrowser';
-import { Utils, Dialogs } from 'nativescript/core';
+import { Utils, Dialogs } from '@nativescript/core';
 export class MyWebViewClass extends IControl {
     private _model: any;
     private _observable: BaseObservable;
