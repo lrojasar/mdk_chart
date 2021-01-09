@@ -55,7 +55,7 @@ export class MyWebViewClass extends IControl {
         this.oWebView.onLoadFinished = function (args) {
             this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
         }
-        this.oWebView.src = "https://web.facebook.com/";
+        this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
         this._StackLayout.addChild(this.oWebView);
         // Create Pie Chart using External plugin
         /*getString(this.oWebView.src).then((r: any) => {
@@ -79,8 +79,8 @@ export class MyWebViewClass extends IControl {
         <h1><font color=\"blue\">NativeScript HtmlView</font></h1></br>
         <h3>This component accept simple HTML strings</h3></span>`;
         this._StackLayout.addChild(myHtmlView);
-        this.oInAppBrowser = new InAppBrowser();
-        const result = await this.oInAppBrowser.open(this.oWebView.src, {
+        //this.oInAppBrowser = new InAppBrowser();
+        const result = await InAppBrowser.open(this.oWebView.src, {
             // iOS Properties
             dismissButtonStyle: 'cancel',
             preferredBarTintColor: '#453AA4',
