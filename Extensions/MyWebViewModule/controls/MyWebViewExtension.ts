@@ -28,7 +28,7 @@ export class MyWebViewClass extends IControl {
     private oInAppBrowser: any;
     private oDiaglogs: any;
     private headers: Map<string, string> = new Map();
-    public async initialize(props) {
+    public initialize(props) {
         super.initialize(props);
 
         // Initiate saleorder Model    
@@ -57,6 +57,7 @@ export class MyWebViewClass extends IControl {
         }
         this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
         this._StackLayout.addChild(this.oWebView);
+        //this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
         // Create Pie Chart using External plugin
         /*getString(this.oWebView.src).then((r: any) => {
             var rr = r;
@@ -80,7 +81,7 @@ export class MyWebViewClass extends IControl {
         <h3>This component accept simple HTML strings</h3></span>`;
         this._StackLayout.addChild(myHtmlView);
         //this.oInAppBrowser = new InAppBrowser();
-        const result = await InAppBrowser.open(this.oWebView.src, {
+        const result = InAppBrowser.open(this.oWebView.src, {
             // iOS Properties
             dismissButtonStyle: 'cancel',
             preferredBarTintColor: '#453AA4',
