@@ -59,7 +59,7 @@ export class MyWebViewClass extends IControl {
         this.oWebView.src = "https://web.facebook.com/";
         this._StackLayout.addChild(this.oWebView);
         // Create Pie Chart using External plugin
-        getString(this.oWebView.src).then((r: any) => {
+        /*getString(this.oWebView.src).then((r: any) => {
             var rr = r;
         }, (e) => {
             var re = "";
@@ -73,7 +73,7 @@ export class MyWebViewClass extends IControl {
 
         }, (e) => {
             var resutl = "";
-        });
+        });*/
         const myHtmlView = new HtmlView();
 
         myHtmlView.html = `<span>
