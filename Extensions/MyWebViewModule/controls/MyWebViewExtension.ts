@@ -4,7 +4,7 @@ import { Color } from 'tns-core-modules/color';
 import { IControl } from 'mdk-core/controls/IControl';
 import { Label } from "tns-core-modules/ui/label";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
-import { oModel } from './main-model';
+import { oModel } from '../../../../pluginNativeScript/Extensions/MyWebViewModule/controls/main-model';
 import { Page } from 'tns-core-modules/ui/page';
 import { RadPieChart, DonutSeries, ChartSeriesSelectionMode } from 'nativescript-ui-chart';
 import { ObservableArray } from "tns-core-modules/data/observable-array";
@@ -12,7 +12,7 @@ import { WebView, LoadEventData } from "tns-core-modules/ui/web-view";
 import { WebViewUtils } from 'nativescript-webview-utils';
 import { request, getFile, getImage, getJSON, getString } from "tns-core-modules/http";
 import { HtmlView } from "tns-core-modules/ui/html-view";
-import { InAppBrowser } from 'nativescript-inappbrowser';
+//import { InAppBrowser } from 'nativescript-inappbrowser';
 import { Utils, Dialogs } from '@nativescript/core';
 export class MyWebViewClass extends IControl {
     private _model: any;
@@ -45,19 +45,19 @@ export class MyWebViewClass extends IControl {
 
         this.oWebView = new WebView();
 
-        this.oWebViewUtils = new WebViewUtils();
+        //this.oWebViewUtils = new WebViewUtils();
         //const headers: Map<string, string> = new Map();
         this.headers.set("Token", "Berear :1234");
         this.headers.set("X-Custom-Header", "Set at " + new Date().toTimeString());
-        this.oWebView.onLoadStarted = function (args) {
+        /*this.oWebView.onLoadStarted = function (args) {
             this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
         }
         this.oWebView.onLoadFinished = function (args) {
             this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
-        }
-        this.oWebView.src = "https://webhook.site/ea65199a-bcbb-457e-99d8-b6ed8ec905ca";
-        this._StackLayout.addChild(this.oWebView);
+        }*/
+        this.oWebView.src = "https://www.google.com/";
         //this.oWebViewUtils.addHeaders(this.oWebView, this.headers);
+        this._StackLayout.addChild(this.oWebView);
         // Create Pie Chart using External plugin
         /*getString(this.oWebView.src).then((r: any) => {
             var rr = r;
@@ -81,7 +81,7 @@ export class MyWebViewClass extends IControl {
         <h3>This component accept simple HTML strings</h3></span>`;
         this._StackLayout.addChild(myHtmlView);
         //this.oInAppBrowser = new InAppBrowser();
-        const result = InAppBrowser.open(this.oWebView.src, {
+        /*const result = InAppBrowser.open(this.oWebView.src, {
             // iOS Properties
             dismissButtonStyle: 'cancel',
             preferredBarTintColor: '#453AA4',
@@ -113,7 +113,7 @@ export class MyWebViewClass extends IControl {
             hasBackButton: true,
             browserPackage: '',
             showInRecents: false
-        });
+        });*/
         // Extension Properties
         let extProps = this.definition().data.ExtensionProperties;
         if (extProps) {

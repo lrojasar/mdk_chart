@@ -1,5 +1,4 @@
 import { Observable } from 'tns-core-modules/data/observable';
-
 export class oModel extends Observable {
     private list : any;
     constructor() {
